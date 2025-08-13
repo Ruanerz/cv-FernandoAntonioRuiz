@@ -43,13 +43,13 @@ const projectsData = [
     {
         title: 'Redes sociales - Caligrafía',
         description: 'Diseño de publicaciones con caligrafía para redes sociales.',
-        images: ['img/19.png', 'img/22.png']
+        images: ['img/19.jpg', 'img/22.jpg']
     },
     // Tarjeta 2: Plataforma e-commerce
     {
         title: 'Caligrafía sobre fotografía',
         description: 'Diseño de portadas e ilustración sobre fotografía. Se creo la caligrafía sobre la fotografía.',
-        images: ['img/3.png', 'img/2.png']
+        images: ['img/3.jpg', 'img/2.jpg']
     },
     // Tarjeta 3: Banners varios
     {
@@ -67,7 +67,7 @@ const projectsData = [
     {
         title: 'Edición sobre imagen e ilustración',
         description: 'Trabajos de edición y manipulación de imágenes con elementos ilustrados.',
-        images: ['img/15.png', 'img/18.png']
+        images: ['img/15.jpg', 'img/18.jpg']
     },
     // Tarjeta 6: Banners varios 3
     {
@@ -97,7 +97,7 @@ const projectsData = [
     {
         title: 'Redes sociales - Banners Perros',
         description: 'Diseño de contenido para redes sociales sobre cuidado de mascotas.',
-        images: ['img/pe4.png']
+        images: ['img/pe4.jpg']
     },
     // Tarjeta 11: Banners Hor Salud
     {
