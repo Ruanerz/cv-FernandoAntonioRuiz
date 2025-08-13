@@ -145,6 +145,7 @@ function openPortfolioModal(projectIndex) {
     
     // Mostrar el modal de portafolio
     portfolioModal.style.display = 'block';
+    portfolioModal.style.opacity = '1';
     document.body.style.overflow = 'hidden'; // Prevenir el scroll del fondo
 }
 
@@ -174,7 +175,10 @@ function cleanupCurrentVideo() {
 // Función para cerrar todos los modales
 function closeAllModals() {
     document.querySelectorAll('.modal').forEach(modal => {
-        closeModal(modal);
+        const display = window.getComputedStyle(modal).display;
+        if (display !== 'none') {
+            closeModal(modal);
+        }
     });
 }
 
@@ -215,6 +219,7 @@ function openVideoModal(videoId) {
     
     // Mostrar el modal
     videoModal.style.display = 'flex';
+    videoModal.style.opacity = '1';
     document.body.style.overflow = 'hidden';
     
     // Intentar reproducir automáticamente
@@ -241,6 +246,7 @@ function closeModal(modal) {
     modal.style.opacity = '0';
     setTimeout(() => {
         modal.style.display = 'none';
+        modal.style.removeProperty('opacity');
         // Solo restablecer el overflow si no hay otros modales abiertos
         if (!document.querySelector('.modal[style*="display: flex"], .modal[style*="display:block"]')) {
             document.body.style.overflow = 'auto';
@@ -255,14 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Función para cerrar el modal de video
     const closeVideoModal = () => {
-        cleanupCurrentVideo();
-        
-        // Ocultar el modal con transición suave
-        videoModal.style.opacity = '0';
-        setTimeout(() => {
-            videoModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 200);
+        closeModal(videoModal);
     };
     
     // Función para centrar el modal
