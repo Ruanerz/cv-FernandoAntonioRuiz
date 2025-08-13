@@ -174,7 +174,10 @@ function cleanupCurrentVideo() {
 // Función para cerrar todos los modales
 function closeAllModals() {
     document.querySelectorAll('.modal').forEach(modal => {
-        closeModal(modal);
+        const display = window.getComputedStyle(modal).display;
+        if (display === 'flex' || display === 'block') {
+            closeModal(modal);
+        }
     });
 }
 
