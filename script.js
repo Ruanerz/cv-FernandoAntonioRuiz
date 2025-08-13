@@ -145,6 +145,7 @@ function openPortfolioModal(projectIndex) {
     
     // Mostrar el modal de portafolio
     portfolioModal.style.display = 'block';
+    portfolioModal.style.opacity = '1';
     document.body.style.overflow = 'hidden'; // Prevenir el scroll del fondo
 }
 
@@ -218,6 +219,7 @@ function openVideoModal(videoId) {
     
     // Mostrar el modal
     videoModal.style.display = 'flex';
+    videoModal.style.opacity = '1';
     document.body.style.overflow = 'hidden';
     
     // Intentar reproducir automáticamente
@@ -244,6 +246,7 @@ function closeModal(modal) {
     modal.style.opacity = '0';
     setTimeout(() => {
         modal.style.display = 'none';
+        modal.style.removeProperty('opacity');
         // Solo restablecer el overflow si no hay otros modales abiertos
         if (!document.querySelector('.modal[style*="display: flex"], .modal[style*="display:block"]')) {
             document.body.style.overflow = 'auto';
