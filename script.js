@@ -116,6 +116,9 @@ const projectsData = [
 
 // Función para abrir el modal de portafolio
 function openPortfolioModal(projectIndex) {
+    // Cerrar cualquier modal abierto primero
+    closeAllModals();
+    
     // Usar el índice del proyecto o el primer proyecto si no existe
     const project = projectsData[projectIndex] || projectsData[0];
     
@@ -168,12 +171,22 @@ function cleanupCurrentVideo() {
     }
 }
 
+// Función para cerrar todos los modales
+function closeAllModals() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        closeModal(modal);
+    });
+}
+
 // Función para abrir el modal de video
 function openVideoModal(videoId) {
     if (!videoId || !videoSources[videoId]) {
         console.error('ID de video no válido:', videoId);
         return;
     }
+    
+    // Cerrar cualquier modal abierto primero
+    closeAllModals();
     
     // Limpiar cualquier video existente primero
     cleanupCurrentVideo();
@@ -217,6 +230,9 @@ function openVideoModal(videoId) {
 
 // Función para cerrar cualquier modal
 function closeModal(modal) {
+    if (!modal) return;
+    
+    // Limpiar el video si es el modal de video
     if (modal === videoModal) {
         cleanupCurrentVideo();
     }
@@ -225,7 +241,10 @@ function closeModal(modal) {
     modal.style.opacity = '0';
     setTimeout(() => {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        // Solo restablecer el overflow si no hay otros modales abiertos
+        if (!document.querySelector('.modal[style*="display: flex"], .modal[style*="display:block"]')) {
+            document.body.style.overflow = 'auto';
+        }
     }, 200);
 }
 
@@ -332,17 +351,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cerrar modales al hacer clic fuera del contenido
     window.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
+            // Cerrar solo el modal en el que se hizo clic
             closeModal(event.target);
+            // Prevenir que el evento se propague a otros manejadores
+            event.stopPropagation();
         }
     });
 
     // Cerrar modales con la tecla Escape
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
-            const openModal = document.querySelector('.modal[style*="display: block"]');
-            if (openModal) {
-                closeModal(openModal);
-            }
+            const openModals = document.querySelectorAll('.modal');
+            openModals.forEach(modal => {
+                if (window.getComputedStyle(modal).display === 'flex' || window.getComputedStyle(modal).display === 'block') {
+                    closeModal(modal);
+                }
+            });
         }
     });
 });
