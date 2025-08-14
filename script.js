@@ -43,7 +43,7 @@ const videoSources = {
     'VIDEO_ID_2': 'video/v-natural.mp4',
     'VIDEO_ID_3': 'video/v-gym.mp4',
     'VIDEO_ID_4': 'video/v-burger.mp4',
-    'VIDEO_ID_5': 'video/v-podcast.mp4',
+    'VIDEO_ID_5': 'video/v-corte.mp4',
     'VIDEO_ID_6': 'video/v-frape.mp4',
     'VIDEO_ID_7': 'video/v-bank.mp4',
     'VIDEO_ID_8': 'video/v-moto.mp4'
@@ -55,7 +55,7 @@ const videoTitles = {
     'VIDEO_ID_2': 'Spot - promocional',
     'VIDEO_ID_3': 'Reel',
     'VIDEO_ID_4': 'Reel',
-    'VIDEO_ID_5': 'Spot - podcast',
+    'VIDEO_ID_5': 'Reel - corte',
     'VIDEO_ID_6': 'Reel',
     'VIDEO_ID_7': 'Reel',
     'VIDEO_ID_8': 'Reel'
