@@ -18,10 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Obtener los modales y sus elementos
 const portfolioModal = document.getElementById('portfolioModal');
+const webModal = document.getElementById('webModal');
 const videoModal = document.getElementById('videoModal');
+
+// Elementos del modal de portafolio (2 imágenes)
 const modalTitle = document.querySelector('#portfolioModal .modal-title');
 const modalDescription = document.querySelector('#portfolioModal .modal-description');
-const modalImages = document.querySelectorAll('.modal-img');
+const modalImages = document.querySelectorAll('#portfolioModal .modal-img');
+
+// Elementos del modal web (1 imagen)
+const webModalTitle = document.querySelector('#webModal .modal-title');
+const webModalDescription = document.querySelector('#webModal .modal-description');
+const webModalImage = document.querySelector('#webModal .web-modal-img');
+
 const closeBtns = document.querySelectorAll('.close');
 
 // Obtener elementos específicos del modal de video
@@ -43,7 +52,7 @@ const videoSources = {
 // Títulos de los videos
 const videoTitles = {
     'VIDEO_ID_1': 'Reel',
-    'VIDEO_ID_2': 'Spot',
+    'VIDEO_ID_2': 'Spot - promocional',
     'VIDEO_ID_3': 'Reel',
     'VIDEO_ID_4': 'Reel',
     'VIDEO_ID_5': 'Spot - podcast',
@@ -113,27 +122,39 @@ const projectsData = [
     },
     // Tarjeta 10: Banners Perros
     {
-        title: 'Redes sociales - Banners Perros',
+        title: 'Redes sociales - Banners Mascotas',
         description: 'Diseño de contenido para redes sociales sobre cuidado de mascotas.',
-        images: ['img/pe4.jpg']
+        images: ['img/pe4.jpg' , 'img/pe2.jpg']
     },
     // Tarjeta 11: Banners Hor Salud
     {
         title: 'Redes sociales - Banners Hor Salud',
         description: 'Contenido visual para servicios de salud y bienestar.',
-        images: ['img/banner-Hor-Salud.jpg']
+        images: ['img/banner-Hor-Salud.jpg' , 'img/banner-mes-enero.jpg']
     },
     // Tarjeta 12: Portadas para podcast
     {
         title: 'Portadas para podcast',
         description: 'Diseño de portadas para episodios de podcast.',
-        images: ['img/banner-PODCAST-Cuadrado.jpg']
+        images: ['img/banner-PODCAST-Cuadrado.jpg' , 'img/banner-PODCAST.jpg']
+    },
+    // Proyectos de la sección Web
+    // Tarjeta 13: Sitio Web Corporativo 1
+    {
+        title: 'Sitio Web Gamer',
+        description: 'Diseño y desarrollo de sitio web gamer.',
+        images: ['img/gw2.jpg']
+    },
+    // Tarjeta 14: Sitio Web Corporativo 2
+    {
+        title: 'Sitio Web Corporativo',
+        description: 'Diseño y desarrollo de sitio web corporativo sobre el área de la salud.',
+        images: ['img/cmpi.jpg']
     }
-    
 ];
 
 // Función para abrir el modal de portafolio
-function openPortfolioModal(projectIndex) {
+function openPortfolioModal(projectIndex, isWebSection = false) {
     // Cerrar cualquier modal abierto primero
     closeAllModals();
     
@@ -145,25 +166,49 @@ function openPortfolioModal(projectIndex) {
     const cardTitle = clickedCard ? clickedCard.querySelector('h3')?.textContent || 'Proyecto' : 'Proyecto';
     const cardImage = clickedCard ? clickedCard.querySelector('img')?.src : '';
     
-    // Usar título del proyecto o de la tarjeta, y descripción del proyecto
-    modalTitle.textContent = project?.title || cardTitle;
-    modalDescription.textContent = project?.description || '';
+    // Determinar si estamos en la sección web (basado en el parámetro o la sección actual)
+    const isWeb = isWebSection || (clickedCard && clickedCard.closest('#web'));
     
-    // Establecer las imágenes
-    if (project?.images) {
-        modalImages.forEach((img, index) => {
-            img.src = project.images[index] || project.images[0];
-        });
-    } else if (cardImage) {
-        // Si no hay datos del proyecto pero hay una imagen en la tarjeta
-        modalImages.forEach(img => {
-            img.src = cardImage;
-        });
+    // Usar el modal correspondiente
+    if (isWeb) {
+        // Usar el modal de web (1 imagen)
+        webModalTitle.textContent = project?.title || cardTitle;
+        webModalDescription.textContent = project?.description || '';
+        
+        // Establecer la primera imagen
+        if (project?.images?.[0]) {
+            webModalImage.src = project.images[0];
+            webModalImage.alt = project.title || 'Imagen del proyecto web';
+        } else if (cardImage) {
+            webModalImage.src = cardImage;
+            webModalImage.alt = cardTitle;
+        }
+        
+        // Mostrar el modal de web
+        webModal.style.display = 'block';
+        webModal.style.opacity = '1';
+    } else {
+        // Usar el modal de portafolio estándar (2 imágenes)
+        modalTitle.textContent = project?.title || cardTitle;
+        modalDescription.textContent = project?.description || '';
+        
+        // Establecer las imágenes
+        if (project?.images) {
+            modalImages.forEach((img, index) => {
+                img.src = project.images[index] || project.images[0];
+            });
+        } else if (cardImage) {
+            // Si no hay datos del proyecto pero hay una imagen en la tarjeta
+            modalImages.forEach(img => {
+                img.src = cardImage;
+            });
+        }
+        
+        // Mostrar el modal de portafolio
+        portfolioModal.style.display = 'block';
+        portfolioModal.style.opacity = '1';
     }
     
-    // Mostrar el modal de portafolio
-    portfolioModal.style.display = 'block';
-    portfolioModal.style.opacity = '1';
     document.body.style.overflow = 'hidden'; // Prevenir el scroll del fondo
 }
 
@@ -352,7 +397,18 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Portfolio card clicked, index:', index, 'Total cards:', cards.length);
             
             if (index !== -1) {
-                openPortfolioModal(index);
+                // Verificar si estamos en la sección web
+                const isWebSection = container.closest('#web') !== null;
+                
+                // Si es la sección web, ajustar el índice para que apunte a los proyectos web en projectsData
+                let projectIndex = index;
+                if (isWebSection) {
+                    // Los proyectos web están al final del arreglo projectsData
+                    // El primer proyecto web está en la posición 12 (índice 11)
+                    projectIndex = 12 + index; // 12 es la posición del primer proyecto web
+                }
+                
+                openPortfolioModal(projectIndex, isWebSection);
             } else {
                 console.error('No se pudo determinar el índice de la tarjeta');
             }

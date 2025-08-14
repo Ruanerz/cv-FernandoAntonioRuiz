@@ -16,6 +16,7 @@ body {
 header {
     padding: 2rem 1rem;
     text-align: center;
+    font-weight: 700;
 }
 
 header h1 {
@@ -36,7 +37,7 @@ main {
 }
 
 .container-datos.container-datos {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(224, 40, 136, 0.6)), url('img/back-1.jpg');
+  background-image: linear-gradient(rgba(241, 243, 248, 0.5), rgba(0, 94, 255, 0.75)), url('img/back-2.jpg');
   width: 100%;
   min-height: 100vh;  /* Full viewport height */
   margin: 0;
@@ -80,8 +81,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-  border: 2px solid #333;
+  color: #0057ff;
   padding: 12px 30px;
   border-radius: 30px;
   text-decoration: none;
@@ -105,7 +105,7 @@ main {
 .arrow-down {
   display: inline-block;
   animation: bounce 1.5s infinite;
-  font-size: 1.2em;
+  font-size: 2em;
 }
 
 @keyframes bounce {
@@ -132,7 +132,7 @@ section {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-top: 0;
     margin-bottom: 1.5rem;
 }
@@ -223,6 +223,10 @@ footer {
 }
 
 /* ===== CV Styles ===== */
+
+.blanco {
+  color: #fff !important;
+}
 .cv-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -446,7 +450,7 @@ footer {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3498db;
+  border-bottom: 2px solid #0057ff;
   display: inline-block;
 }
 
@@ -531,7 +535,7 @@ footer {
 
 .experiencia-empresa {
   font-weight: 500;
-  color: #3498db;
+  color: #0057ff;
   font-size: 0.95rem;
   margin-right: 0.75rem;
 }
@@ -631,6 +635,58 @@ footer {
     line-height: 1.5;
 }
 
+/* Estilos para el modal de la sección web (1 imagen) */
+.web-modal .modal-content {
+    padding: 0;
+    max-width: 90%;
+    width: 90%;
+}
+
+.web-modal .modal-single-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.web-modal .web-modal-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px 8px 0 0;
+}
+
+.web-modal .modal-info {
+    padding: 20px;
+    background: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+.web-modal .modal-title {
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+}
+
+.web-modal .close {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+}
+
+.web-modal .close:hover {
+    color: #ccc;
+}
+
+/* Estilos responsivos para el modal web */
+@media (max-width: 768px) {
+    .web-modal .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .portfolio-container {
@@ -685,7 +741,7 @@ body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neu
 .cv-name { font-size: clamp(2rem, 6vw, 3.75rem); line-height: 1.05; margin: 0; }
 
 /* Grid genérico 2 columnas */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: center; font-weight: 700;}
 @media (max-width: 900px) {
   .grid-2 { grid-template-columns: 1fr; }
 }
@@ -728,4 +784,87 @@ body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neu
 @media print {
   .page { page-break-after: always; }
   .page:last-child { page-break-after: auto; }
+}
+
+/* Redes Sociales */
+.redes-sociales {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.redes-sociales .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.redes-sociales h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+.redes-sociales h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: #3498db;
+  bottom: -10px;
+  left: 25%;
+}
+
+.redes-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.red-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #2c3e50;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 1rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 140px;
+}
+
+.red-social:hover {
+  transform: translateY(-5px);
+  color: #3498db;
+}
+
+.red-social img {
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.red-social:hover img {
+  transform: scale(1.1);
+}
+
+.red-social span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .redes-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .red-social {
+    width: 80%;
+    max-width: 200px;
+  }
 }

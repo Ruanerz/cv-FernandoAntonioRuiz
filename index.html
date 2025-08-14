@@ -15,20 +15,20 @@
   
 
   <!-- Profile and Contact Section -->
-  <div class="container-datos">
+  <div class="container-datos blanco">
 
      <!-- Título / Nombre -->
       <div class="datos-header">
    <header class="cv-header" aria-label="Encabezado del CV">
     <h1 class="cv-name">FERNANDO<br>ANTONIO RUIZ</h1>
-    <p role="doc-subtitle">Diseñador gráfico — Contenido para redes, edición de video y motion graphics</p>
+    <p role="doc-subtitle">Diseñador gráfico — Contenido para redes, edición de video/motion graphics y diseño web.</p>
   </header>
 
     <div class="profile-contact-container">
     <section class="grid-2 intro-cols" aria-label="Resumen y contacto">
       <div class="col">
         <h2 class="section-title sr-only">Perfil profesional</h2>
-        <p>Licenciado en diseño gráfico con experiencia en creación de logotipos, contenido para redes sociales, banners, carteles, edición de video y animación (motion graphics). Soy responsable, autodidacta y estoy en constante aprendizaje.</p>
+        <p>Licenciado en diseño gráfico con experiencia en creación de logotipos, contenido para redes sociales, banners, diseño web, edición de video y animación (motion graphics). Soy responsable, autodidacta y estoy en constante aprendizaje.</p>
         <p>Actualmente me especializo en contenido para redes, tanto imágenes como video. Mi objetivo es fusionar la creatividad visual con estrategias de comunicación que promuevan una mayor participación y conexión con la audiencia.</p>
       </div>
 
@@ -141,7 +141,7 @@
                   <span class="experiencia-empresa">Mariana Trinitaria</span>
                   <span class="experiencia-fecha">junio 2024 – 2025</span>
                 </div>
-                <p>Edición de imágenes para contenido de redes sociales. Edición de video y motion grpahics para contenido en redes.</p>
+                <p>Edición de imágenes para contenido de redes sociales. Edición de video y motion graphics para contenido en redes.</p>
               </article>
 
               <article class="experiencia-item">
@@ -199,7 +199,7 @@
     <div class="container-portafolio"> 
     <div class="portfolio"> 
     <section id="portfolio" aria-labelledby="portfolio-titulo">
-      <h2 id="portfolio-titulo">Portafolio</h2>
+      <h2 id="portfolio-titulo" class="blanco">Portafolio</h2>
       <div class="portfolio-container">
         <div class="card">
           <img src="img/19.jpg" alt="Proyecto 1: sistema de gestión de contenidos">
@@ -289,7 +289,7 @@
 
     <!-- ===== Video ===== -->
     <section id="video" aria-labelledby="video-titulo">
-      <h2 id="video-titulo">Video</h2>
+      <h2 id="video-titulo" class="blanco">Video</h2>
       <div class="portfolio-container">
         <div class="card video-card" data-video-id="VIDEO_ID_1">
           <div class="video-thumbnail">
@@ -420,7 +420,7 @@
 
     <!-- ===== Web (ejemplo) ===== -->
     <section id="web" aria-labelledby="web-titulo">
-      <h2 id="web-titulo">Web</h2>
+      <h2 id="web-titulo" class="blanco">Web</h2>
       <div class="portfolio-container">
         <div class="card">
           <img src="img/gw2.jpg" alt="Sitio Web Corporativo">
@@ -443,12 +443,30 @@
     </div>
   
 
+  <!-- Redes Sociales -->
+  <section id="redes-sociales" class="redes-sociales" aria-labelledby="redes-titulo">
+    <div class="container">
+      <h2 id="redes-titulo">Encuéntrame en</h2>
+      <div class="redes-links">
+        <a href="https://www.instagram.com/_fanru_/" target="_blank" rel="noopener noreferrer" class="red-social">
+          <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="48" height="48">
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.behance.net/fanruantonio" target="_blank" rel="noopener noreferrer" class="red-social">
+          <img src="https://img.icons8.com/color/48/000000/behance.png" alt="Behance" width="48" height="48">
+          <span>Behance</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer aria-label="Pie de página">
     <p>© <span id="anio"></span> Fernando Antonio Ruiz</p>
     <p>Contacto: <a href="mailto:fer.antonio.ruiz@gmail.com">fer.antonio.ruiz@gmail.com</a></p>
+    <p><strong>Teléfono:</strong> <a href="tel:+529512902062">+52 951 290 2062</a></p>
   </footer>
 
-  <!-- Modal -->
+  <!-- Modal para el portafolio general (2 imágenes) -->
     <div id="portfolioModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -458,7 +476,21 @@
             </div>
             <div class="modal-info">
                 <h3 class="modal-title">Título del Proyecto</h3>
-                <p class="modal-description">Descripción detallada del proyecto 1.</p>
+                <p class="modal-description">Descripción detallada del proyecto.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal específico para la sección Web (1 imagen) -->
+    <div id="webModal" class="modal web-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-single-image">
+                <img src="" alt="Imagen del proyecto web" class="web-modal-img">
+            </div>
+            <div class="modal-info">
+                <h3 class="modal-title">Título del Proyecto Web</h3>
+                <p class="modal-description">Descripción detallada del proyecto web.</p>
             </div>
         </div>
     </div>
