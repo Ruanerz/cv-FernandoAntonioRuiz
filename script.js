@@ -138,6 +138,18 @@ const projectsData = [
         description: 'Diseño de portadas para episodios de podcast.',
         images: ['img/banner-PODCAST-Cuadrado.jpg' , 'img/banner-PODCAST.jpg']
     },
+    // Tarjeta 13: Banner - Convocatoria
+    {
+        title: 'Banner - Convocatoria',
+        description: 'Diseño de banner para convocatoria, realizado con Adobe Photoshop e Illustrator.',
+        images: ['img/convocatoria-poblacion-p1.jpg']
+    },
+    // Tarjeta 14: Infografía
+    {
+        title: 'Infografía',
+        description: 'Diseño de infografía informativa, creada con Adobe Illustrator.',
+        images: ['img/infografia-osmosis.jpg']
+    },
     // Proyectos de la sección Web
     // Tarjeta 13: Sitio Web Corporativo 1
     {
