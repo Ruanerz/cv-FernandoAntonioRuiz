@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="scroll-behavior: smooth;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,36 +12,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <!-- Título / Nombre -->
+  
+
+  <!-- Profile and Contact Section -->
+  <div class="container-datos">
+
+     <!-- Título / Nombre -->
+      <div class="datos-header">
    <header class="cv-header" aria-label="Encabezado del CV">
     <h1 class="cv-name">FERNANDO<br>ANTONIO RUIZ</h1>
     <p role="doc-subtitle">Diseñador gráfico — Contenido para redes, edición de video y motion graphics</p>
   </header>
 
+    <div class="profile-contact-container">
+    <section class="grid-2 intro-cols" aria-label="Resumen y contacto">
+      <div class="col">
+        <h2 class="section-title sr-only">Perfil profesional</h2>
+        <p>Licenciado en diseño gráfico con experiencia en creación de logotipos, contenido para redes sociales, banners, carteles, edición de video y animación (motion graphics). Soy responsable, autodidacta y estoy en constante aprendizaje.</p>
+        <p>Actualmente me especializo en contenido para redes, tanto imágenes como video. Mi objetivo es fusionar la creatividad visual con estrategias de comunicación que promuevan una mayor participación y conexión con la audiencia.</p>
+      </div>
+
+      <aside class="col" aria-labelledby="contacto-titulo">
+        <h2 id="contacto-titulo" class="section-title">Contacto</h2>
+        <address class="contacto">
+          <p><strong>Mail:</strong> <a href="mailto:fer.antonio.ruiz@gmail.com">fer.antonio.ruiz@gmail.com</a></p>
+          <p><strong>Teléfono:</strong> <a href="tel:+529512902062">+52 951 290 2062</a></p>
+          <p><strong>Ubicación:</strong> México</p>
+        </address>
+      </aside>
+    </section>
+    </div>
+    <a href="#contenido-principal" class="ver-cv-btn">
+      Ver CV
+      <span class="arrow-down">↓</span>
+    </a>
+    </div>
+  </div>
+
   <main id="contenido-principal">
     <!-- ===== CV ===== -->
     <section id="cv" aria-labelledby="cv-titulo" class="cv-container">
-
-      <!-- Identidad y contacto -->
-      
-
-      <!-- Dos columnas: Perfil (izq) / Contacto (der) -->
-      <section class="grid-2 intro-cols" aria-label="Resumen y contacto">
-        <div class="col">
-          <h2 class="section-title sr-only">Perfil profesional</h2>
-          <p>Licenciado en diseño gráfico con experiencia en creación de logotipos, contenido para redes sociales, banners, carteles, edición de video y animación (motion graphics). Soy responsable, autodidacta y estoy en constante aprendizaje.</p>
-          <p>Actualmente me especializo en contenido para redes, tanto imágenes como video. Mi objetivo es fusionar la creatividad visual con estrategias de comunicación que promuevan una mayor participación y conexión con la audiencia.</p>
-        </div>
-
-        <aside class="col" aria-labelledby="contacto-titulo">
-          <h2 id="contacto-titulo" class="section-title">Contacto</h2>
-          <address class="contacto">
-            <p><strong>Mail:</strong> <a href="mailto:fer.antonio.ruiz@gmail.com">fer.antonio.ruiz@gmail.com</a></p>
-            <p><strong>Teléfono:</strong> <a href="tel:+529512902062">+52 951 290 2062</a></p>
-            <p><strong>Ubicación:</strong> México</p>
-          </address>
-        </aside>
-      </section>
 
       <div class="cv-columns">
         <!-- Columna 1: Habilidades y Formación -->
@@ -77,6 +87,7 @@
                 <li>Adobe After Effects</li>
                 <li>Adobe InDesign</li>
                 <li>Stable Diffusion (IA)</li>
+                <li>Canva</li>
               </ul>
             </div>
           </section>
@@ -182,8 +193,11 @@
         </div>
       </div>
     </section>
-
+  </main>
     <!-- ===== Portafolio (se mantiene, sin cambios de color) ===== -->
+
+    <div class="container-portafolio"> 
+    <div class="portfolio"> 
     <section id="portfolio" aria-labelledby="portfolio-titulo">
       <h2 id="portfolio-titulo">Portafolio</h2>
       <div class="portfolio-container">
@@ -425,7 +439,9 @@
         </div>
       </div>
     </section>
-  </main>
+    </div>
+    </div>
+  
 
   <footer aria-label="Pie de página">
     <p>© <span id="anio"></span> Fernando Antonio Ruiz</p>

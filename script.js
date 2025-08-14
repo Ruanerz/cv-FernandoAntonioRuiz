@@ -1,3 +1,21 @@
+// Configuración del desplazamiento suave para el botón Ver CV
+document.addEventListener('DOMContentLoaded', function() {
+    const verCvBtn = document.querySelector('.ver-cv-btn');
+    const targetSection = document.getElementById('contenido-principal');
+
+    if (verCvBtn && targetSection) {
+        verCvBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - 20; // 20px de margen
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
 // Obtener los modales y sus elementos
 const portfolioModal = document.getElementById('portfolioModal');
 const videoModal = document.getElementById('videoModal');

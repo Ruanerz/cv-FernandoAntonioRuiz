@@ -29,6 +29,97 @@ main {
     padding: 0 1rem;
 }
 
+.datos-header {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container-datos.container-datos {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(224, 40, 136, 0.6)), url('img/back-1.jpg');
+  width: 100%;
+  min-height: 100vh;  /* Full viewport height */
+  margin: 0;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Center content vertically */
+  position: relative;  /* For absolute positioning of the button */
+}
+
+.container-portafolio {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(224, 40, 136, 0.6)), url('img/back-1.jpg');
+  width: 100%;
+  min-height: 100vh;  /* Full viewport height */
+  margin: 0;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Center content vertically */
+  position: relative;  /* For absolute positioning of the button */
+}
+
+.portfolio {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Ver CV Button Styles */
+.ver-cv-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 2px solid #333;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ver-cv-btn:hover {
+  background-color: #333;
+  color: white;
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-down {
+  display: inline-block;
+  animation: bounce 1.5s infinite;
+  font-size: 1.2em;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
 section {
     margin-bottom: 3rem;
     padding: 2rem;
