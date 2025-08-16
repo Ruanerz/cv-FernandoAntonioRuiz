@@ -477,6 +477,6 @@ if (pdfBtn) {
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save('curriculum.pdf');
+        pdf.save('CV-FernandoAntonioRuiz.pdf');
     });
 }
