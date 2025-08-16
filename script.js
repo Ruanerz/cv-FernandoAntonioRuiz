@@ -465,15 +465,18 @@ document.addEventListener('keydown', function(event) {
 
 const pdfBtn = document.getElementById('descargar-pdf');
 if (pdfBtn) {
-    pdfBtn.addEventListener('click', () => {
-        html2canvas(document.body).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('curriculum.pdf');
+    pdfBtn.addEventListener('click', async () => {
+        const canvas = await html2canvas(document.body, {
+            useCORS: true,
+            scrollY: -window.scrollY,
+            scale: 2
         });
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save('curriculum.pdf');
     });
 }
